@@ -122,10 +122,10 @@ int main()
 #endif
 
 
-#if 1
+#if 0
 /*编码规范：变量尽量使用驼峰式命令*/
 /*for循环有结束的条件，而while则没有*/
-/*什么情况下CPU消耗会飙升  ？*/
+/*什么情况下CPU消耗会飙升  ？需解决*/
     int circuleTimes = COUNT_NUM >> 1;
     int randomNum = 0;
 
@@ -135,7 +135,20 @@ int main()
         randomNum = rand() % RANGE_NUM + 1;
         printf("randomNum:%d\n", randomNum);
     }
-
 #endif
+
+#if 1
+/*作用：常使用于宏定义*/
+    int varaNum = 0;
+    do
+    {
+        printf("varaNum:%d\n", varaNum);
+    } while (varaNum);
+    
+#endif
+
+
+
+
     return 0;
 }
