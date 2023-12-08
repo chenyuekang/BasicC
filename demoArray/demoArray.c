@@ -29,7 +29,7 @@ int main()
     printf("%p\n", &array[9]);
     /*数组的(首)地址和数组的首地址是一样的*/
 
-
+#if 0
     /*二进制*/
     /*八进制*/
     /*十进制*/
@@ -39,6 +39,7 @@ int main()
     /*0X34 = 3 * 16 ^ 1 + 4 * 16 ^ 0 = 48 + 4 = 52*/
     /*0Xb4 = 11 * 16 ^ 1 + 4 * 16 ^ 0*/
     /*0X90 = 9 * 16 ^ 1 + 0*/
+#endif
 
 #if 0
     /*清除脏数据*/
@@ -50,5 +51,11 @@ int main()
         printf("array[%d] = %d\n", idx, array[idx]);
     }
 #endif
+
+    /*数组的越界访问*/
+    /*判断索引的有效性*/
+    printf("array[-1]: %d\n", array[-1]);
+    printf("array[10]: %d\n", array[10]);
+
     return 0;
 }
