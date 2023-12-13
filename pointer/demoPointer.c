@@ -94,12 +94,15 @@ int main()
 
     /*Q3:我要给字符串赋值 bug.*/
     char *ptr2 = NULL;
+    printf("&ptr2:%p\n", &ptr2);      
 #if 0
-    ptr2 = "zhangsan";
+    printf("&(zhangsan):%p\n", &("zhangsan"));
+    ptr2 = "zhangsan";             //可以正常输出，因为ptr2指向字符串所在地址空间
+    printf("ptr2:%p\n", ptr2);
 #else
-    strcpy(ptr2, "zhangsan");
+    strcpy(ptr2, "zhangsan");      //出现段错误，因为没有赋值(没有开辟空间），字符串在全局常量区，ptr2在栈区(离开函数就释放了)
 #endif
-    printf("ptr2:%s\n", ptr2);
+    printf("ptr2:%s\n", ptr2);    //printf("ptr2:%c\n", *ptr2); 
 #endif   
     /*堆空间*/
     /*void *是一个指针，这个指针被称为万能指针*/
