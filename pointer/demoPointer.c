@@ -100,12 +100,13 @@ int main()
     ptr2 = "zhangsan";             //可以正常输出，因为ptr2指向字符串所在地址空间
     printf("ptr2:%p\n", ptr2);
 #else
-    strcpy(ptr2, "zhangsan");      //出现段错误，因为没有赋值(没有开辟空间），字符串在全局常量区，ptr2在栈区(离开函数就释放了)
+    strcpy(ptr2, "zhangsan");      //出现段错误，因为没有赋值(没有开辟内存空间），字符串在全局常量区，ptr2在栈区(离开函数就释放了)
 #endif
-    printf("ptr2:%s\n", ptr2);    //printf("ptr2:%c\n", *ptr2); 
-#endif   
+    printf("ptr2:%s\n", ptr2);     //输出字符串时用字符串中第一个字符的地址来输出的，%s字符串的输出要地址
+#endif  
+
     /*堆空间*/
-    /*void *是一个指针，这个指针被称为万能指针*/
+    /*void *是一个指针，这个指针被称为万能指针,需要强转*/
     char *ptr = (char *)malloc(sizeof(char) * BUFFER_SIZE);
     strcpy(ptr, "zhangsan");
     printf("ptr:%s\n", ptr);
